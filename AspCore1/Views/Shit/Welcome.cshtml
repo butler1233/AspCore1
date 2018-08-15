@@ -1,0 +1,11 @@
+﻿<h2>Welcome to Horror, @ViewData["Name"]</h2>
+
+<p>The time now is @ViewData["CurrentTime"]</p>
+
+<p>Your chosen time jump will be spat out a random number of times below.</p>
+<ul>
+    @for (int yolo = 0; yolo < (new Random().Next(1, 10)); yolo++)
+    {
+        <li>@yolo : @ViewData["FutureTime"]</li>
+    }
+</ul>
