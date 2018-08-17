@@ -4,14 +4,16 @@ using AspCore1.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AspCore1.Migrations
 {
     [DbContext(typeof(DownloadContext))]
-    partial class DownloadContextModelSnapshot : ModelSnapshot
+    [Migration("20180817163134_ChangeSize")]
+    partial class ChangeSize
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

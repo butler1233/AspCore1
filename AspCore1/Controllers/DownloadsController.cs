@@ -18,9 +18,15 @@ namespace AspCore1.Controllers
             _context = context;
         }
 
-        // GET: Downloads
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchterm)
         {
+            ViewData["lastSearch"] = searchterm;
+            if (!String.IsNullOrEmpty(searchterm))
+            {
+                var downloads = _context.Download.Where(s => s.File.IndexOf(searchterm, StringComparison.OrdinalIgnoreCase) >= 0 || s.ProductName.IndexOf(searchterm,StringComparison.OrdinalIgnoreCase) >= 0);
+                return View(await downloads.ToListAsync());
+            }
+            //Return everything because they must have searched empty
             return View(await _context.Download.ToListAsync());
         }
 

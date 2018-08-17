@@ -9,6 +9,14 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+<form asp-controller="Downloads" asp-action="Index" method="get" enctype="application/x-www-form-urlencoded">
+    <p>
+        Search filename or prodct name: <input type="text" name="searchterm" value="@ViewData["lastSearch"]"><input type="submit" value="gogogoog" />
+    </p>
+</form>
+
+<!-- Hahah tables in >Current year -->
 <table class="table">
     <thead>
         <tr>
